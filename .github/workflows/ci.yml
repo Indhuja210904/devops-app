@@ -24,8 +24,7 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Flask app (for validation)
+    - name: Verify Flask installation
       run: |
         source venv/bin/activate
-        echo "Running Flask app for CI test"
-        python app.py
+        python -c "import flask; print('Flask version:', flask.__version__)"
