@@ -24,6 +24,5 @@ jobs:
 
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/myapp:latest
-
-    # Optional: Deploy to Minikube or Cloud Kubernetes
-    # For cloud (e.g., GKE/EKS), add kubectl + kubeconfig setup here
+    - name: Notify Docker Push Done
+      run: echo "Docker image pushed to Docker Hub. Run 'kubectl apply -f deployment.yaml' locally to deploy to Minikube."
