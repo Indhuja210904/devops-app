@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌤️ Live Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            text-align: center;
+            padding-top: 50px;
+            color: #333;
+        }
+
+        .weather-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        .card {
+            background: #ffffffbb;
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🌤️ Live Weather Forecast</h1>
+        <p><span class="label">Date:</span> {{ date }}</p>
+        <p><span class="label">Day:</span> {{ day }}</p>
+        <p><span class="label">Time:</span> {{ time }}</p>
+        <p><span class="label">Location:</span> {{ city }}</p>
+
+        <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Weather Icon">
+        <p><span class="label">Temperature:</span> {{ weather.temperature }} °C</p>
+        <p><span class="label">Condition:</span> {{ weather.description }}</p>
+    </div>
+
+</body>
+</html>
