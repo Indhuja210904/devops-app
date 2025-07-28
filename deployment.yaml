@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: myapp:latest
+          imagePullPolicy: Never    
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: myapp-storage
+              mountPath: /app/data
+      volumes:
+        - name: myapp-storage
+          persistentVolumeClaim:
+            claimName: myapp-pvc
